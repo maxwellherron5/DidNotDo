@@ -1,9 +1,10 @@
 package main
 
 import (
-	"os"
+	"path/filepath"
 )
 
+// todo : add docstrings
 func main() {
-	parseFile(os.Args[1])
+	filepath.WalkDir("../DidNotDo/", parseProject)
 }

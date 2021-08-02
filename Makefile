@@ -1,1 +1,5 @@
-todo this is fake
+build:
+	go build -o bin/main main.go
+
+run:
+	go run ./
