@@ -1,9 +1,9 @@
 package main
 
 import (
-	"os"
+	"path/filepath"
 )
 
 func main() {
-	parseFile(os.Args[1])
+	filepath.WalkDir("/test", parseProject)
 }
