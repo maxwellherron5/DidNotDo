@@ -9,12 +9,12 @@ import (
 	"strings"
 )
 
-func parseProject(s string, d fs.DirEntry, e error) error {
+func parseProject(path string, dir fs.DirEntry, e error) error {
 	if e != nil {
 		return e
 	}
-	if !d.IsDir() {
-		fmt.Println("Not a directory")
+	if !dir.IsDir() {
+		parseFile(path)
 	}
 	return nil
 }
@@ -30,7 +30,7 @@ func parseFile(path string) string {
 	line := 1
 	for scanner.Scan() {
 		if strings.Contains(strings.ToLower(scanner.Text()), "todo") {
-			fmt.Printf("TODO found on line: %d\n\t %s\n", line, scanner.Text())
+			fmt.Printf("\nTODO found on line %d with message: %s\n\n", line, scanner.Text())
 		}
 		line++
 	}
